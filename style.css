@@ -1,0 +1,198 @@
+:root {
+  --primary-color: #1d3557;
+  --light-primary: #6096ba;
+  --lighthest-color: #edf6f9;
+  --secondary-color: #8b8c89;
+}
+/*root prioriza o html e é aplicado logo de cara*/
+/*"--" cria variáveis no CSS, no exemplo acima, isso pode facilitar para chamar as cores desejadas*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+/*"*" seleciona todos os elementos da página como foi feito no exemplo acima*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--lighthest-color);
+}
+/*"rem" ajusta o padding de acordo com a fonte*/
+
+#search-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  /*min -height para ocupar a página inteira e é "dvh" para ocupar 100% do tamanho da janela em qualquer plataforma*/
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+header > h2 > i {
+  margin-right: 0.5rem;
+}
+
+/*.input-wrapper{
+    width: 50%;
+}*/
+
+.movie-name-wrapper {
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
+/*nowrap não joga a linha pra baixo*/
+
+.movie-year-wrapper {
+  /*width: 30%;*/
+  display: flex;
+  align-items: center;
+}
+
+.movie-year-wrapper > input {
+  max-width: 5rem;
+  height: 31px;
+}
+
+.movie-name-wrapper > input {
+  width: 100%;
+  height: 31px;
+}
+
+.movie-name-wrapper > input,
+.movie-year-wrapper > input {
+  margin: 0 0.5rem;
+  font-size: 0.95rem;
+  border-radius: 15px;
+  padding: 0.4rem 0.3rem;
+  font-weight: bold;
+}
+
+.movie-name-wrapper > label,
+.movie-year-wrapper > label {
+  font-weight: bold;
+}
+
+#search-button {
+  width: 5%;
+  all: unset;
+  /*all: unset; tira todas as definições de estilo padrão do elemento*/
+  padding: 0.4rem;
+  border: 2px solid var(--lighthest-color);
+  border-radius: 30px;
+}
+
+#search-button:focus,
+#search-button:hover {
+  background-color: #52575b;
+  transition: 0.19s ease;
+  opacity: 0.9;
+}
+
+main {
+  text-align: center;
+  padding: 25px;
+  flex-grow: 1;
+  background-color: #f0ebd8;
+  color: var(--primary-color);
+}
+/*flex-grow = cresça para ocupar o espço que o seu pai("body") te deu*/
+
+/*Definições de estilo feitas a partir do id são mais fortes do que as feitas a partir de classes.*/
+
+#movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  /*flex-wrap: wrap; para jogar para a linha de baixo se não couber*/
+}
+
+#movie-list article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /*space-between fala que um vai ficar colado na parte de cima e o outro na parte de baixo*/
+}
+
+#movie-list article > img {
+  border-radius: 13px;
+  margin-bottom: 0.5rem;
+}
+
+.remove-button {
+  border: 1.5px solid #9e2a2b;
+  padding: 0.3rem 0;
+  width: 100%;
+  border-radius: 14px;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px black;
+  color: #c00021;
+  background-color: #eeeada;
+}
+
+.remove-button:focus,
+.remove-button:hover {
+  transition: all 0.3s ease;
+  background-color: #a4161a;
+  opacity: 0.9;
+  color: var(--lighthest-color);
+}
+
+@media screen and (max-width: 600px) {
+  #header-title {
+    display: flex;
+  }
+
+  #search-container {
+    flex-direction: column;
+  }
+
+  .movie-name-wrapper {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .movie-name-wrapper > input {
+    font-size: 0.8rem;
+  }
+
+  .movie-year-wrapper > input {
+    max-width: 4rem;
+  }
+
+  .movie-year-wrapper {
+    padding: 0rem;
+    margin: 0rem 0rem;
+  }
+
+  #search-button {
+    margin-top: -2rem;
+    margin-right: -7rem;
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  .movie-item {
+    width: 100%;
+  }
+}
